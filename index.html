@@ -12,19 +12,19 @@
             <div class="presupuesto_titulo">
                 Prespuesto Disponible:
             </div>
-            <div class="presupuesto_valor" id="presupuesto">+ 2,000</div>
+            <div class="presupuesto_valor" id="presupuesto"></div>
             <div class="presupuesto_ingreso limpiarEstilos">
                 <div class="presupuesto_ingreso--texto">Ingresos</div>
                 <div class="derecha">
-                    <div class="presupuesto_ingreso--valor" id="ingresos">+4,000.00</div>
+                    <div class="presupuesto_ingreso--valor" id="ingresos">+</div>
                     <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
                 </div>
             </div>
             <div class="presupuesto_egreso limpiarEstilos">
                 <div class="presupuesto_egreso--texto">Egresos</div>
                 <div class="derecha limpiarEstilos">
-                    <div class="presupuesto_egreso--valor" id="egresos">-1,900.00</div>
-                    <div class="presupuesto_egreso--porcentaje" id="porcentaje">45%</div>
+                    <div class="presupuesto_egreso--valor" id="egresos">-</div>
+                    <div class="presupuesto_egreso--porcentaje" id="porcentaje"></div>
                 </div>
             </div>
         </div>
@@ -39,6 +39,7 @@
                 </select>
                 <input type="text" class="agregar_descripcion" placeholder="Agregar Descripcion" id="descripcion"/>
                 <input type="number" class="agregar_valor" placeholder="Valor" id="valor" step="any"/>
+                <input type="date" class="fecha" id="fecha"/>
                 <button class="agregar_btn" onclick="agregarDato()">
                     <ion-icon name="checkmark-circle"></ion-icon>
                 </button>

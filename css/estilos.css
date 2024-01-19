@@ -127,6 +127,8 @@ body {
     margin-right: 10px;
     font-weight: 300;
     transition: border 0.3s;
+    font-family: inherit;
+    border-radius: 5px;
 }
 
 .agregar_descripcion,
@@ -211,9 +213,15 @@ h2 {
     float: left;
 }
 
+.elemento_fecha{
+    float: left;
+    size: 10px;
+}
+
 .elemento_valor {
     float: left;
     transition: transform 0.3s;
+    margin-right: 15px;
 }
 
 .elemento_porcentaje {
@@ -261,3 +269,15 @@ h2 {
 .elemento:hover .elemento_eliminar--btn { display: block; }
 .elemento:hover .elemento_valor { transform: translateX(-20px); }
 .elemento:hover .elemento_porcentaje { transform: translateX(-20px); }
+
+.fecha{
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: border 0.3s;
+}

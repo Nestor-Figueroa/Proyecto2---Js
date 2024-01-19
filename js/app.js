@@ -1,13 +1,13 @@
 //Arreglo de ingresos
 const ingresos = [
-    new Ingreso('Salario',2200.00),
-    new Ingreso('Venta carro',1500)
+    //new Ingreso('Salario',2200.00,'04/02/2003'),
+    //new Ingreso('Venta carro',1500,'05/08/2009')
 ];
 
 //Arreglo de egresos
 const egresos = [   
-    new Egreso('Renta',900.00),
-    new Egreso('Ropa',400.00)
+    //new Egreso('Renta',900.00, '04/02/2003'),
+    //new Egreso('Ropa',400.00, '04/02/2003')
 ];
 
 //Funcion flecha, en ella se mandan a llamar la funciones para cargar los resultados
@@ -71,6 +71,7 @@ const crearIngresoHTML = (ingreso) =>{
     <div class="elemento_descripcion">${ingreso.descripcion}</div>
     <div class="derecha limpiarEstilos">
         <div class="elemento_valor">+ ${formatoMoneda(ingreso.valor)}</div>
+        <div class="elemento_fecha"> ${ingreso.fecha}</div>
         <div class="elemento_eliminar">
             <button class="elemento_eliminar--btn">
                 <ion-icon name="close-circle-sharp" 
@@ -104,7 +105,8 @@ const crearEgresoHTML = (egreso) =>{
     let egresoHTML = `<div class="elemento limpiarEstilos">
     <div class="elemento_descripcion">${egreso.descripcion}</div>
     <div class="derecha limpiarEstilos">
-        <div class="elemento_valor">+ ${formatoMoneda(egreso.valor)}</div>
+        <div class="elemento_valor">- ${formatoMoneda(egreso.valor)}</div>
+        <div class="elemento_fecha"> ${egreso.fecha}</div>
         <div class="elemento_porcentaje">${formatoPorcentaje(egreso.valor/totalEgresos())}</div>
         <div class="elemento_eliminar">
             <button class="elemento_eliminar--btn">
@@ -129,15 +131,17 @@ const agregarDato = () =>{
     let tipo = forma['tipo']; //Recuperamos todo el objeto del selector
     let descripcion = forma['descripcion']; //Recuperamos todo el objeto input texto donde esta la descripcion
     let valor = forma['valor']; //Recuperamos todo el objeto input numbre donde esta el valor
+    let fecha = forma['fecha']; //Recuperamos todo el objeto de input fecha
+
 
     if(descripcion.value !== '' && valor.value !== ''){
         if(tipo.value    === 'ingreso'){
-            ingresos.push(new Ingreso(descripcion.value, Number(valor.value))); //El metodo push ingresa un nuevo elemento objeto del tipo ingreso al arreglo
-            cargarCabecero();
+            ingresos.push(new Ingreso(descripcion.value, Number(valor.value), fecha.value)); //El metodo push ingresa un nuevo elemento objeto del tipo ingreso al arreglo, con sus atributios descripcion, valor y fecha
+            cargarCabecero(); 
             cargarIngresos();
         }
         else if(tipo.value === 'egreso'){
-            egresos.push(new Egreso(descripcion.value, Number(valor.value)));
+            egresos.push(new Egreso(descripcion.value, Number(valor.value), fecha.value));
             cargarEgresos();
             cargarCabecero();
         }
